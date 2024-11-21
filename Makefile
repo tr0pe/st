@@ -9,7 +9,7 @@ OBJ = $(SRC:.c=.o)
 
 all: st
 
-config.h:
+config.h: config.def.h
 	cp config.def.h config.h
 
 .c.o:
@@ -24,7 +24,7 @@ st: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(STLDFLAGS)
 
 clean:
-	rm -f st $(OBJ) st-$(VERSION).tar.gz
+	rm -f st $(OBJ) st-$(VERSION).tar.gz config.h
 
 dist: clean
 	mkdir -p st-$(VERSION)
